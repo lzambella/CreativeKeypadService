@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>KeypadConfig.ui.qml</file>
+    </qresource>
+</RCC>
