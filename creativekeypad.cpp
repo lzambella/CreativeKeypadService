@@ -29,21 +29,23 @@ void CreativeKeypad::connectDevice() {
         qDebug("Target device was not found!\n");
         // restart the disovery process
         agent->start();
+    } else {
+        delete(agent);
+        qDebug("Connecting to device\n");
+        connection = new QLowEnergyController(*creativeKeypadInfo);
+        // Set up connections
+        connect(connection, &QLowEnergyController::connected, this, &CreativeKeypad::deviceConnected);
+        connect(connection, &QLowEnergyController::serviceDiscovered, this, &CreativeKeypad::serviceDiscovery);
+        //connect(connection, &QLowEnergyController::characteristicChanged, this, &CreativeKeypad::readCharacteristic);
+        connect(connection, &QLowEnergyController::discoveryFinished, this, &CreativeKeypad::serviceScanDone, Qt::QueuedConnection);
+        connection->connectToDevice();
     }
-    delete(agent);
-    qDebug("Connecting to device\n");
-    connection = new QLowEnergyController(*creativeKeypadInfo);
-    // Set up connections
-    connect(connection, &QLowEnergyController::connected, this, &CreativeKeypad::deviceConnected);
-    connect(connection, &QLowEnergyController::serviceDiscovered, this, &CreativeKeypad::serviceDiscovery);
-    //connect(connection, &QLowEnergyController::characteristicChanged, this, &CreativeKeypad::readCharacteristic);
-    connect(connection, &QLowEnergyController::discoveryFinished, this, &CreativeKeypad::serviceScanDone, Qt::QueuedConnection);
-    connection->connectToDevice();
 }
 
 void CreativeKeypad::deviceConnected() {
     qDebug("Connected to the device.");
     CreativeKeypad::connection->discoverServices();
+    emit CreativeKeypad::keypadConnected();
 }
 
 void CreativeKeypad::serviceDiscovery(const QBluetoothUuid &gatt) {

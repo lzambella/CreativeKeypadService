@@ -21,14 +21,23 @@ void Backend::loadWindowComponents() {
         qDebug() << " Found the configuration window";
 }
 void Backend::getConfig(int id) {
-    qDebug() << "Loading configuration...";
+    QString keybind;
+    qint16 mod;
+    switch (id) {
+    case 0:
+        keybind = this->config->encoder_a[1].physical_key;
+        mod = this->config->encoder_a[1].mod;
+        qDebug() << "Sending keybind " << keybind;
+        emit sendConfiguration(keybind, mod);
+        break;
+    }
 }
 
 void Backend::writeConfig(int id, int mod, QString keystroke) {
     qDebug() << "Saving the config";
     qDebug() << "Setting ID " << id << " to " << keystroke;
     // Get the status of the current button and change accordingly
-    ShortcutKey shortcut(keystroke, (ShortcutKey::MODIFIERS) 2);
+    ShortcutKey shortcut(keystroke, (ShortcutKey::MODIFIERS) mod);
     switch (id) {
     // A Left
     case 0:
@@ -74,7 +83,9 @@ void Backend::writeConfig(int id, int mod, QString keystroke) {
     // Now for the numpad fi applicable
     // This is tedious
     if (id >= 12) {
-        this->config->setKeypadValue(id, &shortcut);
+        // numpad IDS are from 0-11, id will never be higher than 23
+        int true_id = id - 12;
+        this->config->setKeypadValue(true_id, &shortcut);
     }
     // Use QDatastream streams
     qDebug() << "serializing the configuration";
@@ -84,7 +95,7 @@ void Backend::writeConfig(int id, int mod, QString keystroke) {
             qDebug() << "Could not open file";
     else {
         QDataStream stream(&file);
-        stream << this->config;
+        stream << *this->config;
         file.close();
         qDebug() << "File written";
     }

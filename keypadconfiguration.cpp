@@ -27,8 +27,7 @@ void KeypadConfiguration::setKeypadValue(int id, ShortcutKey *key_config) {
     this->num_pad[id].virtual_key = key_config->virtual_key;
     this->num_pad[id].virtual_modifier = key_config->virtual_modifier;
     this->num_pad[id].physical_key = key_config->physical_key;
-    this->num_pad[id].mod = key_config->:w
-            mod;
+    this->num_pad[id].mod = key_config->mod;
 }
 QDataStream &operator<<(QDataStream &out, const KeypadConfiguration &config) {
     for (int i = 0; i < 12; i++) {

@@ -38,7 +38,16 @@ public:
      */
     Q_INVOKABLE void writeConfig(int id, int mod, QString keystroke);
     void loadWindowComponents();
-
+signals:
+    /**
+    * @brief sendConfiguration
+    * Send the keybind character as a qstring along with the modifier value as an integer.
+    * For sending what the selected button is to QML so the user knows that the button
+    * maps to.
+    * @param keybind
+    * @param modifier
+    */
+    void sendConfiguration(QString keybind, qint16 modifier);
 private:
     /**
      * @brief config

@@ -1,3 +1,9 @@
+/**
+  * Luke Zambella 2021
+  * Interface class for Creative Keypad hardware
+  * Attempts to automatically connect to keypad VIA BLE
+  */
+
 #ifndef CREATIVEKEYPAD_H
 #define CREATIVEKEYPAD_H
 
@@ -60,6 +66,17 @@ signals:
      */
 
     void messageReveiced(const QByteArray msg);
+    /**
+     * @brief keypadConnected
+     * Emitted when the software successfully connects with the creative keypad hardware
+     */
+    void keypadConnected();
+    /**
+     * @brief keypadDisconnected
+     * Emitted when the software disconnects from the device
+     */
+
+    void keypadDisconnected();
 };
 
 #endif // CREATIVEKEYPAD_H

@@ -22,6 +22,7 @@ QLowEnergyService * keypad_service = NULL;
 // Master config class
 KeypadConfiguration config;
 
+
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -44,7 +45,10 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     Backend gui_backend(&engine, config);
+
     engine.rootContext()->setContextProperty("Backend", &gui_backend);
+    engine.rootContext()->setContextProperty("keypadService", keypad);
+    engine.rootContext()->setContextProperty("backendService", &gui_backend);
     engine.load(url);
 
     return app.exec();

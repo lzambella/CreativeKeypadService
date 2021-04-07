@@ -7,6 +7,9 @@ Rectangle {
     width: 1024
     height: 768
     visible: true
+    property alias keyConfig: keyConfig
+    property alias text1: text1
+    property alias connectStatus: connectStatus
     property alias button11: button11
     property alias button10: button10
     property alias button9: button9
@@ -19,7 +22,6 @@ Rectangle {
     property alias button2: button2
     property alias button1: button1
     property alias button: button
-    property alias textInput: textInput
     property alias ctrlCheckBox: ctrlCheckBox
     property alias altCheckBox: altCheckBox
     property alias shiftCheckBox: shiftCheckBox
@@ -46,7 +48,7 @@ Rectangle {
         width: 1024
         height: 768
         visible: true
-        color: "#555a5e"
+        color: "#949ca3"
 
         CheckBox {
             id: ctrlCheckBox
@@ -115,7 +117,7 @@ Rectangle {
         }
 
         TextEdit {
-            id: textInput
+            id: keyConfig
             x: 391
             y: 506
             width: 80
@@ -125,8 +127,20 @@ Rectangle {
             font.pixelSize: 12
 
             Connections {
-                target: textInput
-                onClicked: textInput.cursorVisible = "true"
+                target: keyConfig
+                onClicked: keyConfig.cursorVisible = "true"
+            }
+        }
+
+        Button {
+            id: cancelButton
+            x: 391
+            y: 580
+            visible: false
+            text: qsTr("Button")
+            Connections {
+                target: cancelButton
+                onClicked: rectangle.state = "base state"
             }
         }
     }
@@ -146,13 +160,11 @@ Rectangle {
             y: 307
             width: 62
             height: 59
+            opacity: 1
             text: qsTr("1")
+            display: AbstractButton.TextBesideIcon
+            clip: false
             font.pointSize: 30
-
-            Connections {
-                target: button
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -163,11 +175,6 @@ Rectangle {
             height: 59
             text: qsTr("2")
             font.pointSize: 30
-
-            Connections {
-                target: button1
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -178,11 +185,6 @@ Rectangle {
             height: 59
             text: qsTr("3")
             font.pointSize: 30
-
-            Connections {
-                target: button2
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -193,11 +195,6 @@ Rectangle {
             height: 59
             text: qsTr("4")
             font.pointSize: 30
-
-            Connections {
-                target: button3
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -208,11 +205,6 @@ Rectangle {
             height: 59
             text: qsTr("5")
             font.pointSize: 30
-
-            Connections {
-                target: button4
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -223,11 +215,6 @@ Rectangle {
             height: 59
             text: qsTr("6")
             font.pointSize: 30
-
-            Connections {
-                target: button5
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -238,11 +225,6 @@ Rectangle {
             height: 59
             text: qsTr("7")
             font.pointSize: 30
-
-            Connections {
-                target: button6
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -253,11 +235,6 @@ Rectangle {
             height: 59
             text: qsTr("8")
             font.pointSize: 30
-
-            Connections {
-                target: button7
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -268,11 +245,6 @@ Rectangle {
             height: 59
             text: qsTr("9")
             font.pointSize: 30
-
-            Connections {
-                target: button8
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -283,11 +255,6 @@ Rectangle {
             height: 59
             text: qsTr("10")
             font.pointSize: 30
-
-            Connections {
-                target: button9
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -298,11 +265,6 @@ Rectangle {
             height: 59
             text: qsTr("11")
             font.pointSize: 30
-
-            Connections {
-                target: button10
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -313,11 +275,6 @@ Rectangle {
             height: 59
             text: qsTr("12")
             font.pointSize: 30
-
-            Connections {
-                target: button11
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -328,11 +285,6 @@ Rectangle {
             height: 59
             text: qsTr("<")
             font.pointSize: 30
-
-            Connections {
-                target: encALeft
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -343,11 +295,6 @@ Rectangle {
             height: 59
             text: qsTr(">")
             font.pointSize: 30
-
-            Connections {
-                target: encARight
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -358,11 +305,6 @@ Rectangle {
             height: 59
             text: qsTr("<")
             font.pointSize: 30
-
-            Connections {
-                target: encBLeft
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -373,11 +315,6 @@ Rectangle {
             height: 59
             text: qsTr(">")
             font.pointSize: 30
-
-            Connections {
-                target: encBRight
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -388,11 +325,6 @@ Rectangle {
             height: 59
             text: qsTr("<")
             font.pointSize: 30
-
-            Connections {
-                target: encCLeft
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -403,11 +335,6 @@ Rectangle {
             height: 59
             text: qsTr(">")
             font.pointSize: 30
-
-            Connections {
-                target: encCRight
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -418,11 +345,6 @@ Rectangle {
             height: 59
             text: qsTr("<")
             font.pointSize: 30
-
-            Connections {
-                target: encDLeft
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -433,11 +355,6 @@ Rectangle {
             height: 59
             text: qsTr(">")
             font.pointSize: 30
-
-            Connections {
-                target: encDRight
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -448,11 +365,6 @@ Rectangle {
             height: 59
             text: qsTr("<")
             font.pointSize: 30
-
-            Connections {
-                target: encELeft
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -463,11 +375,6 @@ Rectangle {
             height: 59
             text: qsTr(">")
             font.pointSize: 30
-
-            Connections {
-                target: encERight
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -478,11 +385,6 @@ Rectangle {
             height: 59
             text: qsTr("<")
             font.pointSize: 30
-
-            Connections {
-                target: encFLeft
-                onClicked: rectangle.state = "EditKey"
-            }
         }
 
         Button {
@@ -493,11 +395,6 @@ Rectangle {
             height: 59
             text: qsTr(">")
             font.pointSize: 30
-
-            Connections {
-                target: encFRight
-                onClicked: rectangle.state = "EditKey"
-            }
         }
     }
 
@@ -507,8 +404,8 @@ Rectangle {
 
             PropertyChanges {
                 target: keypadBase
-                x: 8
-                y: 151
+                x: 0
+                y: 148
                 visible: false
             }
 
@@ -545,8 +442,9 @@ Rectangle {
                 x: 411
                 y: 147
                 visible: true
-                text: qsTr("Modifiers")
+                text: qsTr("Edit Key")
                 font.pixelSize: 51
+                horizontalAlignment: Text.AlignHCenter
                 font.underline: true
                 minimumPixelSize: 40
             }
@@ -570,7 +468,7 @@ Rectangle {
 
             PropertyChanges {
                 target: confirmButton
-                x: 398
+                x: 238
                 y: 590
                 visible: true
                 text: qsTr("Confirm")
@@ -578,18 +476,20 @@ Rectangle {
             }
 
             PropertyChanges {
-                target: textInput
+                target: keyConfig
                 x: 477
                 y: 354
                 width: 243
-                height: 61
+                height: 58
                 visible: true
                 text: ""
                 font.pixelSize: 50
+                selectByKeyboard: false
+                focus: true
                 selectByMouse: true
-                persistentSelection: true
+                persistentSelection: false
                 activeFocusOnPress: true
-                font.capitalization: Font.MixedCase
+                font.capitalization: Font.AllLowercase
                 overwriteMode: false
                 cursorVisible: false
                 mouseSelectionMode: TextInput.SelectCharacters
@@ -604,10 +504,26 @@ Rectangle {
                 height: 59
                 visible: true
             }
+
+            PropertyChanges {
+                target: connectStatus
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            PropertyChanges {
+                target: cancelButton
+                x: 572
+                y: 590
+                width: 254
+                height: 93
+                visible: true
+                text: qsTr("Cancel")
+                font.pointSize: 50
+            }
         }
     ]
     Label {
-        id: label
+        id: connectStatus
         x: 88
         y: 45
         text: qsTr("Connection Status: Not Connected")
@@ -619,7 +535,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:12}
 }
 ##^##*/
 
