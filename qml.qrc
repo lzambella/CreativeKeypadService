@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>KeypadConfig.ui.qml</file>
         <file>CreativeKeypadAssembly2.png</file>
+        <file>PragatiNarrow-Bold.ttf</file>
     </qresource>
 </RCC>

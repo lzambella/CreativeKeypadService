@@ -8,8 +8,8 @@
 #include <QDataStream>
 #include <windows.h>
 #include <WinUser.h>
-#include "../ConfigProgram/keypadconfiguration.h"
-#include "../ConfigProgram/shortcutkey.h"
+#include "keypadconfiguration.h"
+#include "shortcutkey.h"
 
 /**
   * Max number of keystrokes allowed from device

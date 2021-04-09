@@ -162,6 +162,8 @@ Rectangle {
             height: 59
             opacity: 1
             text: qsTr("1")
+            font.bold: true
+            font.family: "Pragati Narrow"
             display: AbstractButton.TextBesideIcon
             clip: false
             font.pointSize: 30
@@ -174,6 +176,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("2")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -184,6 +188,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("3")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -194,6 +200,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("4")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -204,6 +212,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("5")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -214,6 +224,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("6")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -224,6 +236,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("7")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -234,6 +248,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("8")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -244,6 +260,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("9")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -254,6 +272,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("10")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -264,6 +284,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("11")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -274,6 +296,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("12")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -284,6 +308,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("<")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -294,6 +320,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr(">")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -304,6 +332,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("<")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -314,6 +344,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr(">")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -324,6 +356,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("<")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -334,6 +368,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr(">")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -344,6 +380,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("<")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -354,6 +392,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr(">")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -364,6 +404,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("<")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -374,6 +416,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr(">")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -384,6 +428,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr("<")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
 
@@ -394,6 +440,8 @@ Rectangle {
             width: 62
             height: 59
             text: qsTr(">")
+            font.bold: true
+            font.family: "Pragati Narrow"
             font.pointSize: 30
         }
     }
@@ -411,51 +459,65 @@ Rectangle {
 
             PropertyChanges {
                 target: ctrlCheckBox
-                x: 233
-                y: 237
+                x: 168
+                y: 262
                 visible: true
                 text: qsTr("CTRL")
+                font.bold: true
+                font.family: "Pragati Narrow"
                 checked: false
                 font.pointSize: 35
             }
 
             PropertyChanges {
                 target: altCheckBox
-                x: 450
-                y: 237
+                x: 456
+                y: 262
                 visible: true
                 text: qsTr("ALT")
+                font.bold: true
+                font.family: "Pragati Narrow"
                 font.pointSize: 35
             }
 
             PropertyChanges {
                 target: shiftCheckBox
-                x: 651
-                y: 237
+                x: 709
+                y: 262
                 visible: true
                 text: qsTr("SHIFT")
+                font.bold: true
+                font.family: "Pragati Narrow"
                 font.pointSize: 35
             }
 
             PropertyChanges {
                 target: text1
-                x: 411
-                y: 147
+                x: 436
+                y: 146
+                width: 152
+                height: 86
                 visible: true
                 text: qsTr("Edit Key")
-                font.pixelSize: 51
+                font.pixelSize: 54
                 horizontalAlignment: Text.AlignHCenter
+                font.bold: true
+                font.family: "Pragati Narrow"
                 font.underline: true
                 minimumPixelSize: 40
             }
 
             PropertyChanges {
                 target: text2
-                x: 238
-                y: 352
+                x: 266
+                y: 391
+                width: 206
+                height: 70
                 visible: true
                 text: qsTr("Keystroke:")
                 font.pixelSize: 50
+                font.bold: true
+                font.family: "Pragati Narrow"
             }
 
             PropertyChanges {
@@ -468,21 +530,26 @@ Rectangle {
 
             PropertyChanges {
                 target: confirmButton
-                x: 238
-                y: 590
+                x: 168
+                y: 593
+                width: 253
+                height: 93
                 visible: true
                 text: qsTr("Confirm")
+                font.bold: true
+                font.family: "Pragati Narrow"
                 font.pointSize: 50
             }
 
             PropertyChanges {
                 target: keyConfig
-                x: 477
-                y: 354
+                x: 478
+                y: 403
                 width: 243
-                height: 58
+                height: 59
                 visible: true
                 text: ""
+                font.letterSpacing: 0.4
                 font.pixelSize: 50
                 selectByKeyboard: false
                 focus: true
@@ -492,50 +559,57 @@ Rectangle {
                 font.capitalization: Font.AllLowercase
                 overwriteMode: false
                 cursorVisible: false
-                mouseSelectionMode: TextInput.SelectCharacters
+                mouseSelectionMode: TextInput.SelectWords
                 renderType: Text.NativeRendering
             }
 
             PropertyChanges {
                 target: rectangle1
-                x: 477
-                y: 354
+                x: 478
+                y: 403
                 width: 243
                 height: 59
                 visible: true
+                border.color: "#000000"
             }
 
             PropertyChanges {
                 target: connectStatus
+                x: 31
+                y: 11
                 horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 58
             }
 
             PropertyChanges {
                 target: cancelButton
-                x: 572
-                y: 590
-                width: 254
+                x: 606
+                y: 593
+                width: 253
                 height: 93
                 visible: true
                 text: qsTr("Cancel")
+                font.bold: true
+                font.family: "Pragati Narrow"
                 font.pointSize: 50
             }
         }
     ]
     Label {
         id: connectStatus
-        x: 88
-        y: 45
+        x: 31
+        y: 11
         text: qsTr("Connection Status: Not Connected")
         horizontalAlignment: Text.AlignHCenter
-        font.family: "Tahoma"
-        font.pointSize: 42
+        font.bold: true
+        font.family: "Pragati Narrow"
+        font.pointSize: 58
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:12}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/
 
