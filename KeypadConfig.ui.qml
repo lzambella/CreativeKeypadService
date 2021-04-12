@@ -7,6 +7,7 @@ Rectangle {
     width: 1024
     height: 768
     visible: true
+    property alias rectangle1: rectangle1
     property alias keyConfig: keyConfig
     property alias text1: text1
     property alias connectStatus: connectStatus
@@ -40,6 +41,7 @@ Rectangle {
     property alias encARight: encARight
     property alias encALeft: encALeft
 
+    property var selected: 0
     Rectangle {
         id: configKeyDialog
         objectName: "configDialog"
@@ -106,29 +108,29 @@ Rectangle {
             }
         }
 
-        TextEdit {
-            id: keyConfig
-            x: 391
-            y: 506
-            width: 80
-            height: 20
+        Rectangle {
+            id: rectangle1
+            x: 546
+            y: 403
+            width: 200
+            height: 200
             visible: false
-            text: qsTr("Text Edit")
-            font.pixelSize: 12
+            color: "#ffffff"
 
-            Rectangle {
-                id: rectangle1
-                x: 0
-                y: 0
-                width: 200
-                height: 200
+            TextEdit {
+                id: keyConfig
+                x: 546
+                y: 403
+                width: 80
+                height: 20
                 visible: false
-                color: "#ffffff"
-            }
+                text: qsTr("Text Edit")
+                font.pixelSize: 12
 
-            Connections {
-                target: keyConfig
-                onClicked: keyConfig.cursorVisible = "true"
+                Connections {
+                    target: keyConfig
+                    onClicked: keyConfig.cursorVisible = "true"
+                }
             }
         }
 
@@ -154,151 +156,212 @@ Rectangle {
         source: "CreativeKeypadAssembly2.png"
         fillMode: Image.PreserveAspectFit
 
-        Button {
+        KeyButton {
             id: button
-            x: 363
-            y: 307
-            width: 62
-            height: 59
+            x: 138
+            y: 81
+            width: 512
+            height: 512
             opacity: 1
-            text: qsTr("1")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            display: AbstractButton.TextBesideIcon
+            scale: 0.14
             clip: false
-            font.pointSize: 30
+            Connections {
+                target: button.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 12
+                    Backend.getConfig(12)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button1
-            x: 442
-            y: 307
-            width: 62
-            height: 59
-            text: qsTr("2")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 217
+            y: 81
+            width: 512
+            height: 512
+            opacity: 1
+            scale: 0.14
+            Connections {
+                target: button1.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    Backend.getConfig(13)
+                    selected = 13
+                    console.log("Pressed button 13")
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button2
-            x: 517
-            y: 307
-            width: 62
-            height: 59
-            text: qsTr("3")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 292
+            y: 81
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button2.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 14
+                    Backend.getConfig(14)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button3
-            x: 594
-            y: 307
-            width: 62
-            height: 59
-            text: qsTr("4")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 370
+            y: 81
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button3.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 15
+                    Backend.getConfig(15)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button4
-            x: 363
-            y: 382
-            width: 62
-            height: 59
-            text: qsTr("5")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 139
+            y: 156
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button4.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 16
+                    Backend.getConfig(16)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button5
-            x: 442
-            y: 382
-            width: 62
-            height: 59
-            text: qsTr("6")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 217
+            y: 156
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button5.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 17
+                    Backend.getConfig(17)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button6
-            x: 517
-            y: 382
-            width: 62
-            height: 59
-            text: qsTr("7")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 292
+            y: 156
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button6.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 18
+                    Backend.getConfig(18)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button7
-            x: 594
-            y: 382
-            width: 62
-            height: 59
-            text: qsTr("8")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 370
+            y: 156
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button7.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 19
+                    Backend.getConfig(19)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button8
-            x: 363
-            y: 458
-            width: 62
-            height: 59
-            text: qsTr("9")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 138
+            y: 232
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button8.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 20
+                    Backend.getConfig(20)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button9
-            x: 442
-            y: 458
-            width: 62
-            height: 59
-            text: qsTr("10")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 217
+            y: 232
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button9.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 21
+                    Backend.getConfig(21)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button10
-            x: 517
-            y: 458
-            width: 62
-            height: 59
-            text: qsTr("11")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 292
+            y: 232
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button10.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 22
+                    Backend.getConfig(22)
+                }
+            }
         }
 
-        Button {
+        KeyButton {
             id: button11
-            x: 594
-            y: 458
-            width: 62
-            height: 59
-            text: qsTr("12")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 370
+            y: 232
+            width: 512
+            height: 512
+            scale: 0.14
+            Connections {
+                target: button11.buttonMouseArea
+                onClicked: {
+                    rectangle.state = "EditKey"
+                    selected = 23
+                    Backend.getConfig(23)
+                }
+            }
         }
 
         EncoderButtonCCW {
@@ -313,6 +376,7 @@ Rectangle {
                 onClicked: {
                     console.log("Button pressed")
                     Backend.getConfig(0)
+                    selected = 0
                     rectangle.state = "EditKey"
                 }
             }
@@ -327,160 +391,171 @@ Rectangle {
             Connections {
                 target: encARight.encMouseArea
                 onClicked: {
-                    Backend.getConfig(0)
+                    Backend.getConfig(1)
+                    selected = 1
                     rectangle.state = "EditKey"
                 }
             }
         }
 
-        Button {
+        EncoderButtonCCW {
             id: encBLeft
             x: 170
             y: 245
             width: 67
             height: 93
-            background: Image {
-
-                source: "Assets/ArrowCCWUnselect.png"
+            Connections {
+                target: encBLeft.encMouseArea
+                onClicked: {
+                    Backend.getConfig(2)
+                    selected = 2
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCW {
             id: encBRight
             x: 249
             y: 245
             width: 67
             height: 93
-            background: Image {
-
-                source: "Assets/ArrowCWUnselect.png"
+            Connections {
+                target: encBRight.encMouseArea
+                onClicked: {
+                    Backend.getConfig(3)
+                    selected = 3
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCCW {
             id: encCLeft
             x: 170
             y: 449
             width: 67
             height: 88
-            background: Image {
-
-                source: "Assets/ArrowCCWUnselect.png"
+            Connections {
+                target: encCLeft.encMouseArea
+                onClicked: {
+                    Backend.getConfig(4)
+                    selected = 4
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCW {
             id: encCRight
             x: 249
             y: 449
             width: 67
             height: 88
-            background: Image {
-
-                source: "Assets/ArrowCWUnselect.png"
+            Connections {
+                target: encCRight.encMouseArea
+                onClicked: {
+                    Backend.getConfig(5)
+                    selected = 5
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCCW {
             id: encDLeft
             x: 703
             y: 52
             width: 67
             height: 89
-            background: Image {
-
-                source: "Assets/ArrowCCWUnselect.png"
+            Connections {
+                target: encDLeft.encMouseArea
+                onClicked: {
+                    Backend.getConfig(6)
+                    selected = 6
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCW {
             id: encDRight
             x: 781
             y: 52
             width: 67
             height: 89
-            background: Image {
-
-                source: "Assets/ArrowCWUnselect.png"
+            Connections {
+                target: encDRight.encMouseArea
+                onClicked: {
+                    Backend.getConfig(7)
+                    selected = 7
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCCW {
             id: encELeft
             x: 703
             y: 245
             width: 67
             height: 93
-            background: Image {
-
-                source: "Assets/ArrowCCWUnselect.png"
+            Connections {
+                target: encELeft.encMouseArea
+                onClicked: {
+                    Backend.getConfig(8)
+                    selected = 8
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCW {
             id: encERight
             x: 781
             y: 245
             width: 67
             height: 93
-            background: Image {
-
-                source: "Assets/ArrowCWUnselect.png"
+            Connections {
+                target: encERight.encMouseArea
+                onClicked: {
+                    Backend.getConfig(9)
+                    selected = 9
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCCW {
             id: encFLeft
             x: 703
             y: 449
             width: 67
             height: 88
-            background: Image {
-
-                source: "Assets/ArrowCCWUnselect.png"
+            Connections {
+                target: encFLeft.encMouseArea
+                onClicked: {
+                    Backend.getConfig(10)
+                    selected = 10
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCW {
             id: encFRight
             x: 781
             y: 449
             width: 67
             height: 88
-            background: Image {
-
-                source: "Assets/ArrowCWUnselect.png"
+            Connections {
+                target: encFRight.encMouseArea
+                onClicked: {
+                    Backend.getConfig(11)
+                    selected = 11
+                    rectangle.state = "EditKey"
+                }
             }
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
         }
     }
 
@@ -547,12 +622,12 @@ Rectangle {
 
             PropertyChanges {
                 target: text2
-                x: 270
-                y: 398
-                width: 270
-                height: 70
+                x: 308
+                y: 405
+                width: 178
+                height: 59
                 visible: true
-                text: qsTr("Keystroke:")
+                text: qsTr("Button")
                 font.pixelSize: 50
                 font.bold: true
                 font.family: "Pragati Narrow"
@@ -582,8 +657,8 @@ Rectangle {
 
             PropertyChanges {
                 target: keyConfig
-                x: 546
-                y: 403
+                x: 0
+                y: 0
                 width: 243
                 height: 59
                 visible: true
@@ -604,8 +679,8 @@ Rectangle {
 
             PropertyChanges {
                 target: rectangle1
-                x: 0
-                y: 0
+                x: 492
+                y: 405
                 width: 243
                 height: 59
                 visible: true
@@ -648,5 +723,25 @@ Rectangle {
         font.bold: true
         font.family: "Pragati Narrow"
         font.pointSize: 42
+    }
+
+    Connections {
+        target: backendService
+        onSendConfiguration: {
+            console.log("Received Kebind: ", keybind)
+            keypadWindow.setInputText(qsTr(keybind))
+        }
+    }
+
+    Connections {
+        target: confirmButton
+        onClicked: {
+            if (keyConfig.length == 0) {
+                console.log("No input, ignoring")
+            } else {
+                Backend.writeConfig(selected, 0, keyConfig.text)
+            }
+            configKey = ""
+        }
     }
 }

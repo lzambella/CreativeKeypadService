@@ -10,5 +10,8 @@
         <file>Assets/ArrowCWUnselect.png</file>
         <file>EncoderButtonCCW.qml</file>
         <file>EncoderButtonCW.qml</file>
+        <file>KeyButton.qml</file>
+        <file>Assets/ButtonSelect.png</file>
+        <file>Assets/ButtonUnselect.png</file>
     </qresource>
 </RCC>
