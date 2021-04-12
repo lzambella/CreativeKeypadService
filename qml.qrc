@@ -4,5 +4,11 @@
         <file>KeypadConfig.ui.qml</file>
         <file>CreativeKeypadAssembly2.png</file>
         <file>PragatiNarrow-Bold.ttf</file>
+        <file>Assets/ArrowCCWSelect.png</file>
+        <file>Assets/ArrowCCWUnselect.png</file>
+        <file>Assets/ArrowCWSelect.png</file>
+        <file>Assets/ArrowCWUnselect.png</file>
+        <file>EncoderButtonCCW.qml</file>
+        <file>EncoderButtonCW.qml</file>
     </qresource>
 </RCC>

@@ -106,16 +106,6 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            id: rectangle1
-            x: 479
-            y: 354
-            width: 200
-            height: 200
-            visible: false
-            color: "#ffffff"
-        }
-
         TextEdit {
             id: keyConfig
             x: 391
@@ -125,6 +115,16 @@ Rectangle {
             visible: false
             text: qsTr("Text Edit")
             font.pixelSize: 12
+
+            Rectangle {
+                id: rectangle1
+                x: 0
+                y: 0
+                width: 200
+                height: 200
+                visible: false
+                color: "#ffffff"
+            }
 
             Connections {
                 target: keyConfig
@@ -150,7 +150,7 @@ Rectangle {
         x: 0
         y: 147
         width: 1024
-        height: 605
+        height: 606
         source: "CreativeKeypadAssembly2.png"
         fillMode: Image.PreserveAspectFit
 
@@ -301,37 +301,48 @@ Rectangle {
             font.pointSize: 30
         }
 
-        Button {
+        EncoderButtonCCW {
             id: encALeft
-            x: 175
-            y: 80
-            width: 62
-            height: 59
-            text: qsTr("<")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 170
+            y: 52
+            width: 67
+            height: 89
+            opacity: 1
+            Connections {
+                target: encALeft.encMouseArea
+                onClicked: {
+                    console.log("Button pressed")
+                    Backend.getConfig(0)
+                    rectangle.state = "EditKey"
+                }
+            }
         }
 
-        Button {
+        EncoderButtonCW {
             id: encARight
-            x: 243
-            y: 80
-            width: 62
-            height: 59
-            text: qsTr(">")
-            font.bold: true
-            font.family: "Pragati Narrow"
-            font.pointSize: 30
+            x: 249
+            y: 52
+            width: 67
+            height: 89
+            Connections {
+                target: encARight.encMouseArea
+                onClicked: {
+                    Backend.getConfig(0)
+                    rectangle.state = "EditKey"
+                }
+            }
         }
 
         Button {
             id: encBLeft
-            x: 175
-            y: 273
-            width: 62
-            height: 59
-            text: qsTr("<")
+            x: 170
+            y: 245
+            width: 67
+            height: 93
+            background: Image {
+
+                source: "Assets/ArrowCCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -339,11 +350,14 @@ Rectangle {
 
         Button {
             id: encBRight
-            x: 243
-            y: 273
-            width: 62
-            height: 59
-            text: qsTr(">")
+            x: 249
+            y: 245
+            width: 67
+            height: 93
+            background: Image {
+
+                source: "Assets/ArrowCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -351,11 +365,14 @@ Rectangle {
 
         Button {
             id: encCLeft
-            x: 175
-            y: 478
-            width: 62
-            height: 59
-            text: qsTr("<")
+            x: 170
+            y: 449
+            width: 67
+            height: 88
+            background: Image {
+
+                source: "Assets/ArrowCCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -363,11 +380,14 @@ Rectangle {
 
         Button {
             id: encCRight
-            x: 243
-            y: 478
-            width: 62
-            height: 59
-            text: qsTr(">")
+            x: 249
+            y: 449
+            width: 67
+            height: 88
+            background: Image {
+
+                source: "Assets/ArrowCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -375,11 +395,14 @@ Rectangle {
 
         Button {
             id: encDLeft
-            x: 711
-            y: 80
-            width: 62
-            height: 59
-            text: qsTr("<")
+            x: 703
+            y: 52
+            width: 67
+            height: 89
+            background: Image {
+
+                source: "Assets/ArrowCCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -387,11 +410,14 @@ Rectangle {
 
         Button {
             id: encDRight
-            x: 779
-            y: 80
-            width: 62
-            height: 59
-            text: qsTr(">")
+            x: 781
+            y: 52
+            width: 67
+            height: 89
+            background: Image {
+
+                source: "Assets/ArrowCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -399,11 +425,14 @@ Rectangle {
 
         Button {
             id: encELeft
-            x: 711
-            y: 273
-            width: 62
-            height: 59
-            text: qsTr("<")
+            x: 703
+            y: 245
+            width: 67
+            height: 93
+            background: Image {
+
+                source: "Assets/ArrowCCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -411,11 +440,14 @@ Rectangle {
 
         Button {
             id: encERight
-            x: 779
-            y: 273
-            width: 62
-            height: 59
-            text: qsTr(">")
+            x: 781
+            y: 245
+            width: 67
+            height: 93
+            background: Image {
+
+                source: "Assets/ArrowCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -423,11 +455,14 @@ Rectangle {
 
         Button {
             id: encFLeft
-            x: 711
-            y: 478
-            width: 62
-            height: 59
-            text: qsTr("<")
+            x: 703
+            y: 449
+            width: 67
+            height: 88
+            background: Image {
+
+                source: "Assets/ArrowCCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -435,11 +470,14 @@ Rectangle {
 
         Button {
             id: encFRight
-            x: 779
-            y: 478
-            width: 62
-            height: 59
-            text: qsTr(">")
+            x: 781
+            y: 449
+            width: 67
+            height: 88
+            background: Image {
+
+                source: "Assets/ArrowCWUnselect.png"
+            }
             font.bold: true
             font.family: "Pragati Narrow"
             font.pointSize: 30
@@ -509,9 +547,9 @@ Rectangle {
 
             PropertyChanges {
                 target: text2
-                x: 266
-                y: 391
-                width: 206
+                x: 270
+                y: 398
+                width: 270
                 height: 70
                 visible: true
                 text: qsTr("Keystroke:")
@@ -526,6 +564,7 @@ Rectangle {
                 y: 0
                 width: 1024
                 height: 768
+                color: "#949ca3"
             }
 
             PropertyChanges {
@@ -538,12 +577,12 @@ Rectangle {
                 text: qsTr("Confirm")
                 font.bold: true
                 font.family: "Pragati Narrow"
-                font.pointSize: 50
+                font.pointSize: 40
             }
 
             PropertyChanges {
                 target: keyConfig
-                x: 478
+                x: 546
                 y: 403
                 width: 243
                 height: 59
@@ -565,8 +604,8 @@ Rectangle {
 
             PropertyChanges {
                 target: rectangle1
-                x: 478
-                y: 403
+                x: 0
+                y: 0
                 width: 243
                 height: 59
                 visible: true
@@ -575,10 +614,10 @@ Rectangle {
 
             PropertyChanges {
                 target: connectStatus
-                x: 31
-                y: 11
+                x: 30
+                y: 40
                 horizontalAlignment: Text.AlignHCenter
-                font.pointSize: 58
+                font.pointSize: 42
             }
 
             PropertyChanges {
@@ -591,25 +630,23 @@ Rectangle {
                 text: qsTr("Cancel")
                 font.bold: true
                 font.family: "Pragati Narrow"
-                font.pointSize: 50
+                font.pointSize: 40
+            }
+
+            PropertyChanges {
+                target: rectangle
+                color: "#1e1e1e"
             }
         }
     ]
     Label {
         id: connectStatus
-        x: 31
-        y: 11
+        x: 30
+        y: 40
         text: qsTr("Connection Status: Not Connected")
         horizontalAlignment: Text.AlignHCenter
         font.bold: true
         font.family: "Pragati Narrow"
-        font.pointSize: 58
+        font.pointSize: 42
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:0.75}
-}
-##^##*/
-

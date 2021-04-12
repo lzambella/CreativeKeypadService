@@ -151,17 +151,6 @@ Window {
             selected = 2;
             Backend.getConfig(2)
         }
-        encARight.onClicked: {
-            this.state = "EditKey";
-            selected = 1;
-            Backend.getConfig(1)
-        }
-        encALeft.onClicked: {
-            this.state = "EditKey";
-            selected = 0;
-            Backend.getConfig(0);
-
-        }
         confirmButton.onClicked: {
             if (keyConfig.length == 0) {
                 console.log("No input, ignoring");
