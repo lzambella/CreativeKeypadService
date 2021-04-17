@@ -16,10 +16,11 @@ class ShortcutKey : public QObject
 {
 public:
     enum MODIFIERS {
+        NONE,
         CTRL,
-        SHIFT,
         ALT,
-        NONE
+        SHIFT
+
     };
 
     ShortcutKey();

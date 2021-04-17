@@ -59,6 +59,14 @@ public:
     void sendVirtualKeyEvent(hid_msg hid);
     DWORD hid2vk(char key);
     KeypadConfiguration * config;
+private:
+    /**
+     * @brief msg2key
+     * Gets the shortcutkey object the physical key binds to
+     * @return
+     * a pointer to the key in the configuration class
+     */
+    ShortcutKey * msg2key(char);
 signals:
 
 };

@@ -22,7 +22,7 @@ public:
      * @param pointer to the QML file used with all the stuff
      * @param config Reference to a master configuration file to use, should be an address
      */
-    Backend(QQmlApplicationEngine * eng, KeypadConfiguration &config);
+    Backend(QQmlApplicationEngine * eng, KeypadConfiguration *config);
     /**
      * @brief buttonOnClicked
      * Handles pressing a button by changing to the next state
@@ -47,7 +47,7 @@ signals:
     * @param keybind
     * @param modifier
     */
-    void sendConfiguration(QString keybind, qint16 modifier);
+    void sendConfiguration(qint16 id, QString keybind, qint16 modifier);
 private:
     /**
      * @brief config

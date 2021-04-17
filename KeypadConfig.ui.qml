@@ -729,17 +729,61 @@ Rectangle {
         target: backendService
         onSendConfiguration: {
             console.log("Received Kebind: ", keybind)
-            keypadWindow.setInputText(qsTr(keybind))
+            switch (id) {
+            case 12:
+                button.configuredName.text = keybind
+                break
+            case 13:
+                button1.configuredName.text = keybind
+                break
+            case 14:
+                button2.configuredName.text = keybind
+                break
+            case 15:
+                button3.configuredName.text = keybind
+                break
+            case 16:
+                button4.configuredName.text = keybind
+                break
+            case 17:
+                button5.configuredName.text = keybind
+                break
+            case 18:
+                button6.configuredName.text = keybind
+                break
+            case 19:
+                button7.configuredName.text = keybind
+                break
+            case 20:
+                button8.configuredName.text = keybind
+                break
+            case 21:
+                button9.configuredName.text = keybind
+                break
+            case 22:
+                button10.configuredName.text = keybind
+                break
+            case 23:
+                button11.configuredName.text = keybind
+                break
+            }
         }
     }
 
     Connections {
         target: confirmButton
         onClicked: {
+            var modifier = 0
             if (keyConfig.length == 0) {
                 console.log("No input, ignoring")
             } else {
-                Backend.writeConfig(selected, 0, keyConfig.text)
+                if (ctrlCheckBox.checked)
+                    modifier = 1
+                if (altCheckBox.checked)
+                    modifier = 2
+                if (shiftCheckBox.checked)
+                    modifier = 3
+                Backend.writeConfig(selected, modifier, keyConfig.text)
             }
             configKey = ""
         }

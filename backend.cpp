@@ -1,12 +1,17 @@
 #include "backend.h"
 
-Backend::Backend(QQmlApplicationEngine * eng, KeypadConfiguration &config)
+Backend::Backend(QQmlApplicationEngine * eng, KeypadConfiguration * config)
 {
     // Get the QML
     this->engine = eng;
-    this->config = &config;
+    this->config = config;
     qDebug() << "Engine used:" << engine->baseUrl();
     qDebug() << "Configuration used: " << &this->config;
+    /*
+     * Send all the configuration parameters to the GUI
+     * via signals after the configuration is set so the
+     * buttons have their configuration
+     */
 
 }
 void Backend::loadWindowComponents() {
@@ -23,14 +28,68 @@ void Backend::loadWindowComponents() {
 void Backend::getConfig(int id) {
     QString keybind;
     qint16 mod;
-    switch (id) {
-    case 0:
-        keybind = this->config->encoder_a[1].physical_key;
-        mod = this->config->encoder_a[1].mod;
-        qDebug() << "Sending keybind " << keybind;
-        emit sendConfiguration(keybind, mod);
-        break;
+    // Numpad keys
+    if (id > 11 && id < 24) {
+        keybind = this->config->num_pad[id - 12].physical_key;
+        mod = this->config->num_pad[id - 12].mod;
+    } else {
+        switch (id) {
+        case 0:
+            keybind = this->config->encoder_a[0].physical_key;
+            mod = this->config->encoder_a[0].mod;
+            break;
+        case 1:
+            keybind = this->config->encoder_a[1].physical_key;
+            mod = this->config->encoder_a[1].mod;
+            break;
+        case 2:
+            keybind = this->config->encoder_b[0].physical_key;
+            mod = this->config->encoder_b[0].mod;
+            break;
+        case 3:
+            keybind = this->config->encoder_b[1].physical_key;
+            mod = this->config->encoder_b[1].mod;
+            break;
+        case 4:
+            keybind = this->config->encoder_c[0].physical_key;
+            mod = this->config->encoder_c[0].mod;
+            break;
+        case 5:
+            keybind = this->config->encoder_c[1].physical_key;
+            mod = this->config->encoder_c[1].mod;
+            break;
+        case 6:
+            keybind = this->config->encoder_d[0].physical_key;
+            mod = this->config->encoder_d[0].mod;
+            break;
+        case 7:
+            keybind = this->config->encoder_d[1].physical_key;
+            mod = this->config->encoder_d[1].mod;
+            break;
+        case 8:
+            keybind = this->config->encoder_e[0].physical_key;
+            mod = this->config->encoder_e[0].mod;
+        case 9:
+            keybind = this->config->encoder_e[1].physical_key;
+            mod = this->config->encoder_e[1].mod;
+            break;
+        case 10:
+            keybind = this->config->encoder_f[0].physical_key;
+            mod = this->config->encoder_f[0].mod;
+            break;
+        case 11:
+            keybind = this->config->encoder_f[1].physical_key;
+            mod = this->config->encoder_f[1].mod;
+            break;
+        default:
+            keybind = '0';
+            mod = 0;
+            break;
+        }
     }
+    qDebug() << "Sending keybind " << keybind;
+    emit sendConfiguration(id, keybind, mod);
+
 }
 
 void Backend::writeConfig(int id, int mod, QString keystroke) {
@@ -99,4 +158,6 @@ void Backend::writeConfig(int id, int mod, QString keystroke) {
         file.close();
         qDebug() << "File written";
     }
+    // Send the updated key to the GUI
+    emit sendConfiguration(id, keystroke, mod);
 }

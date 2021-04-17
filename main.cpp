@@ -4,6 +4,9 @@
 #include <QtBluetooth>
 #include <QObject>
 #include <QQmlContext>
+#include <QFile>
+#include <QDataStream>
+#include <QIODevice>
 
 #include "creativekeypad.h"
 #include "messagehandler.h"
@@ -18,10 +21,10 @@ QUuid receiveUuid = QUuid("6e400003-b5a3-f393-e0a9-e50e24dcca9e");
 QBluetoothDeviceInfo * keypad_info = NULL;
 QLowEnergyController * connection = NULL;
 QLowEnergyService * keypad_service = NULL;
-
+Backend * gui_backend;
 // Master config class
-KeypadConfiguration config;
 
+void loadConfig();
 
 int main(int argc, char *argv[])
 {
@@ -29,27 +32,50 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+    KeypadConfiguration config;
+    /*
+     * Load the configuration file into \config\
+     */
+    QFile file("./config.dat");
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "Could not open configuration file!";
+    } else {
+        QDataStream str(&file);
+        str.startTransaction();
+        str >> config;
+        str.commitTransaction();
+        file.close();
+    }
     QGuiApplication app(argc, argv);
 
+    MessageHandler handler(config);
+    CreativeKeypad keypad;
+
     QQmlApplicationEngine engine;
-    CreativeKeypad * keypad = new CreativeKeypad();
-    MessageHandler * handler = new MessageHandler(config);
-
-    // Connect the message receiver from the keypad object to the message handler
-    QObject::connect(keypad, &CreativeKeypad::messageReveiced, handler, &MessageHandler::handleMessage);
-
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
+        else
+            loadConfig();
     }, Qt::QueuedConnection);
-    Backend gui_backend(&engine, config);
+    gui_backend = new Backend(&engine, &config);
 
-    engine.rootContext()->setContextProperty("Backend", &gui_backend);
-    engine.rootContext()->setContextProperty("keypadService", keypad);
-    engine.rootContext()->setContextProperty("backendService", &gui_backend);
+    engine.rootContext()->setContextProperty("Backend", gui_backend);
+    engine.rootContext()->setContextProperty("keypadService", &keypad);
+    engine.rootContext()->setContextProperty("backendService", gui_backend);
     engine.load(url);
 
+    // Connect the message receiver from the keypad object to the message handler
+    QObject::connect(&keypad, &CreativeKeypad::messageReveiced, &handler, &MessageHandler::handleMessage);
     return app.exec();
+}
+void loadConfig() {
+
+    // Load config data into GUI
+    for (int i = 0; i < 24; i++) {
+       gui_backend->getConfig(i);
+    }
 }
