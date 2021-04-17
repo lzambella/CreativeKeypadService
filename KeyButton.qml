@@ -58,7 +58,7 @@ Item {
         anchors.bottom: pushButton.top
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        anchors.topMargin: -398
+        anchors.topMargin: -512
         anchors.bottomMargin: -512
         anchors.rightMargin: -512
         anchors.leftMargin: -512
@@ -71,6 +71,7 @@ Item {
       */
     Text {
         id: shiftMod
+        visible: false
         y: 44
         width: 155
         height: 64
@@ -86,6 +87,7 @@ Item {
     }
     Text {
         id: ctrlMod
+        visible: false
         x: 180
         y: -6
         color: "#ffffff"
@@ -100,6 +102,7 @@ Item {
     }
     Text {
         id: altMod
+        visible: false
         y: -6
         height: 64
         color: "#ffffff"
@@ -121,6 +124,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:4}D{i:5}D{i:6}D{i:7}
+    D{i:0;formeditorZoom:0.5}
 }
 ##^##*/

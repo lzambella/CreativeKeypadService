@@ -728,42 +728,78 @@ Rectangle {
     Connections {
         target: backendService
         onSendConfiguration: {
-            console.log("Received Kebind: ", keybind)
+            console.log("Received Kebind: ", keybind, " Mod ", modifier)
             switch (id) {
             case 12:
+                button.ctrlMod.visible = (modifier == 1) ? true : false
+                button.altMod.visible = (modifier == 2) ? true : false
+                button.shiftMod.visible = (modifier == 3) ? true : false
                 button.configuredName.text = keybind
                 break
             case 13:
+                button1.ctrlMod.visible = (modifier == 1) ? true : false
+                button1.altMod.visible = (modifier == 2) ? true : false
+                button1.shiftMod.visible = (modifier == 3) ? true : false
                 button1.configuredName.text = keybind
                 break
             case 14:
+                button2.ctrlMod.visible = (modifier == 1) ? true : false
+                button2.altMod.visible = (modifier == 2) ? true : false
+                button2.shiftMod.visible = (modifier == 3) ? true : false
                 button2.configuredName.text = keybind
                 break
             case 15:
+                button3.ctrlMod.visible = (modifier == 1) ? true : false
+                button3.altMod.visible = (modifier == 2) ? true : false
+                button3.shiftMod.visible = (modifier == 3) ? true : false
                 button3.configuredName.text = keybind
                 break
             case 16:
+                button4.ctrlMod.visible = (modifier == 1) ? true : false
+                button4.altMod.visible = (modifier == 2) ? true : false
+                button4.shiftMod.visible = (modifier == 3) ? true : false
                 button4.configuredName.text = keybind
                 break
             case 17:
+                button5.ctrlMod.visible = (modifier == 1) ? true : false
+                button5.altMod.visible = (modifier == 2) ? true : false
+                button5.shiftMod.visible = (modifier == 3) ? true : false
                 button5.configuredName.text = keybind
                 break
             case 18:
+                button6.ctrlMod.visible = (modifier == 1) ? true : false
+                button6.altMod.visible = (modifier == 2) ? true : false
+                button6.shiftMod.visible = (modifier == 3) ? true : false
                 button6.configuredName.text = keybind
                 break
             case 19:
+                button7.ctrlMod.visible = (modifier == 1) ? true : false
+                button7.altMod.visible = (modifier == 2) ? true : false
+                button7.shiftMod.visible = (modifier == 3) ? true : false
                 button7.configuredName.text = keybind
                 break
             case 20:
+                button8.ctrlMod.visible = (modifier == 1) ? true : false
+                button8.altMod.visible = (modifier == 2) ? true : false
+                button8.shiftMod.visible = (modifier == 3) ? true : false
                 button8.configuredName.text = keybind
                 break
             case 21:
+                button9.ctrlMod.visible = (modifier == 1) ? true : false
+                button9.altMod.visible = (modifier == 2) ? true : false
+                button9.shiftMod.visible = (modifier == 3) ? true : false
                 button9.configuredName.text = keybind
                 break
             case 22:
+                button10.ctrlMod.visible = (modifier == 1) ? true : false
+                button10.altMod.visible = (modifier == 2) ? true : false
+                button10.shiftMod.visible = (modifier == 3) ? true : false
                 button10.configuredName.text = keybind
                 break
             case 23:
+                button11.ctrlMod.visible = (modifier == 1) ? true : false
+                button11.altMod.visible = (modifier == 2) ? true : false
+                button11.shiftMod.visible = (modifier == 3) ? true : false
                 button11.configuredName.text = keybind
                 break
             }
