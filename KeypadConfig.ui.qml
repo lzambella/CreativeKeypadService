@@ -153,12 +153,21 @@ Rectangle {
         y: 147
         width: 1024
         height: 606
-        source: "CreativeKeypadAssembly2.png"
+        source: ""
         fillMode: Image.PreserveAspectFit
+
+        Rectangle {
+            id: rectangle2
+            x: 129
+            y: 27
+            width: 754
+            height: 549
+            color: "#1e1e1e"
+        }
 
         KeyButton {
             id: button
-            x: 138
+            x: 139
             y: 81
             width: 512
             height: 512
@@ -177,7 +186,7 @@ Rectangle {
 
         KeyButton {
             id: button1
-            x: 217
+            x: 214
             y: 81
             width: 512
             height: 512
@@ -196,7 +205,7 @@ Rectangle {
 
         KeyButton {
             id: button2
-            x: 292
+            x: 289
             y: 81
             width: 512
             height: 512
@@ -213,7 +222,7 @@ Rectangle {
 
         KeyButton {
             id: button3
-            x: 370
+            x: 364
             y: 81
             width: 512
             height: 512
@@ -247,7 +256,7 @@ Rectangle {
 
         KeyButton {
             id: button5
-            x: 217
+            x: 214
             y: 156
             width: 512
             height: 512
@@ -264,7 +273,7 @@ Rectangle {
 
         KeyButton {
             id: button6
-            x: 292
+            x: 289
             y: 156
             width: 512
             height: 512
@@ -281,7 +290,7 @@ Rectangle {
 
         KeyButton {
             id: button7
-            x: 370
+            x: 363
             y: 156
             width: 512
             height: 512
@@ -298,8 +307,8 @@ Rectangle {
 
         KeyButton {
             id: button8
-            x: 138
-            y: 232
+            x: 139
+            y: 231
             width: 512
             height: 512
             scale: 0.14
@@ -315,8 +324,8 @@ Rectangle {
 
         KeyButton {
             id: button9
-            x: 217
-            y: 232
+            x: 214
+            y: 231
             width: 512
             height: 512
             scale: 0.14
@@ -332,8 +341,8 @@ Rectangle {
 
         KeyButton {
             id: button10
-            x: 292
-            y: 232
+            x: 289
+            y: 231
             width: 512
             height: 512
             scale: 0.14
@@ -349,8 +358,8 @@ Rectangle {
 
         KeyButton {
             id: button11
-            x: 370
-            y: 232
+            x: 363
+            y: 231
             width: 512
             height: 512
             scale: 0.14
@@ -825,3 +834,9 @@ Rectangle {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:1.33}
+}
+##^##*/

@@ -29,10 +29,10 @@ Window {
         }
 
         function setConnectedText()  {
-            connectStatus.text = "Keypad Status: Connected";
+            connectStatus.text = "Connection Status: Connected";
         }
         function setDisconnectedText() {
-            connectStatus.text = "Keypad Status: Not Connected";
+            connectStatus.text = "Connection Status: Not Connected";
         }
         function setInputText(txt) {
             // megahack
